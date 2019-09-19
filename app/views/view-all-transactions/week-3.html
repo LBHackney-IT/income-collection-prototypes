@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">
+  Viewing all transactions for 44 Bridge Street
+</h1>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Incoming</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Outgoing</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Balance</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="/view-all-transactions/week-1"> 12 - 18 Aug </a>
+      </td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">-£120.45</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£118.67</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£65.58</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="/view-all-transactions/week-2">
+          5 - 11 Aug
+        </a>
+      </td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">-£120.45</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£150.67</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£69.58</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="/view-all-transactions/week-3">
+          29 Jul - 4 Aug
+        </a>
+      </td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">-£110.45</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£42.67</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£55.58</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="/view-all-transactions/week-4">
+          22 - 28 Jul
+        </a>
+      </td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">-£110.45</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£118.67</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">£40.58</td>
+    </tr>
+  </tbody>
+</table>
+<h1 class="govuk-heading-l">
+  History for July 29th - August 4th
+</h1>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header">Type</th>
+      <th scope="col" class="govuk-table__header">Description</th>
+      <th scope="col" class="govuk-table__header">Balance</th>
+      <th scope="col" class="govuk-table__header">User</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12th Aug</td>
+      <td class="govuk-table__cell">Sent letter 2</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£65.58</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">13th Aug</td>
+      <td class="govuk-table__cell">Sent letter 2</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£65.58</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">15th Aug</td>
+      <td class="govuk-table__cell">Sent letter 2</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£65.58</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">16th Aug</td>
+      <td class="govuk-table__cell">Sent letter 2</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£65.58</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+</table>
+
+
+{% endblock %}
