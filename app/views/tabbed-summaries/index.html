@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">
+  Donald S. Roy
+  <span class="govuk-caption-l"> at 57 Haslemere Road, Eastry, CT13 3XS</span>
+</h1>
+
+<div class="govuk-inset-text">
+  <h2 class="govuk-heading-l">
+    £1,235 in arrears
+  </h2>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<p class="govuk-!-margin-bottom-0">
+  <strong>Reference number: </strong>123456
+</p>
+<p class="govuk-!-margin-bottom-0">
+  <strong>Start date: </strong>01/01/1999
+</p>
+<p class="govuk-!-margin-bottom-0">
+  <strong>Payment reference: </strong>4456151
+</p>
+<p class="govuk-!-margin-bottom-0">
+  <strong>Tenure: </strong>Secure
+</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<p class="govuk-!-margin-bottom-0">
+  <strong>Contact details</strong>
+</p>
+<p class="govuk-body govuk-!-margin-bottom-0">Mr Donald S. Roy</p>
+<p class="govuk-body govuk-!-margin-bottom-0">070 7485 3989</p>
+<p class="govuk-body govuk-!-margin-bottom-0">donroy@hotmail.co.uk</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#rent">
+        Rent and payments
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#letters">
+        Letters
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#contact">
+        Contact attempts
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#legal">
+        Court history
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#behaviour">
+        Tenant behaviour
+      </a>
+    </li>
+  </ul>
+
+  <section class="govuk-tabs__panel" id="rent">
+    <h2 class="govuk-heading-l">Rent and payments</h2>
+    <p class="govuk-body">
+      The last payment on this account was <strong>£43.40</strong>, five weeks ago.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">See full transaction history</a>
+    </p>
+    <p class="govuk-body">
+      This tenant has never had a payment agreement.
+    </p>
+    <a class="govuk-link govuk-body" href="#">Record a payment agreement</a>
+  </section>
+
+  <section class="govuk-tabs__panel" id="letters">
+    <h2 class="govuk-heading-l">Letters</h2>
+    <p class="govuk-body">
+      We've sent <strong>4</strong> letters to this tenant in the last 12 months.
+    </p>
+    <p class="govuk-body">
+      The last letter was <strong>letter 2</strong>, sent three weeks ago.
+    </p>
+
+    <p class="govuk-body">
+      <a class="govuk-body govuk-link" href="#">See all the letters we've sent</a>
+    </p>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Send a letter to this tenant</a>
+    </p>
+  </section>
+
+  <section class="govuk-tabs__panel" id="contact">
+    <h2 class="govuk-heading-l">Contact attempts</h2>
+    <p class="govuk-body">
+      We last called this tenant four days ago.
+    </p>
+
+    <p class="govuk-body">
+      We've never texted or e-mailed this tenant.
+    </p>
+
+    <a class="govuk-body govuk-link" href="#">See all of our contact attempts</a>
+  </section>
+
+  <section class="govuk-tabs__panel" id="legal">
+    <h2 class="govuk-heading-l">Court history</h2>
+    <p class="govuk-body">
+      We've never served notice on this tenant.
+    </p>
+  </section>
+
+  <section class="govuk-tabs__panel" id="behaviour">
+    <h2 class="govuk-heading-l">Tenant behaviour</h2>
+    <p class="govuk-body">
+      We've never served notice on this tenant.
+    </p>
+
+    <p class="govuk-body">
+      This tenant has never had a payment agreement.
+    </p>
+
+    <a class="govuk-link govuk-body" href="#">Record a payment agreement</a>
+  </section>
+</div>
+
+{% endblock %}
