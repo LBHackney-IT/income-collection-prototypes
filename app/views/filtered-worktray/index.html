@@ -11,20 +11,20 @@
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
       <a class="govuk-tabs__tab" href="#warning-letter">
-        Warning letters
+        Send a warning letter
       </a>
     </li>
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#nosp-due">
-        NoSP
+        NoSP due
       </a>
     </li>
-    <li class="govuk-tabs__list-item">
+    <li class="govuk-tabs__list-item" style="width: 15%;text-align: left;">
       <a class="govuk-tabs__tab" href="#universal-credit">
-        Universal Credit
+        Universal Credit direct payments
       </a>
     </li>
-    <li class="govuk-tabs__list-item">
+    <li class="govuk-tabs__list-item" style="width: 15%;text-align: left;">
       <a class="govuk-tabs__tab" href="#upcoming-court">
         Upcoming court action
       </a>
@@ -34,47 +34,521 @@
         Evictions
       </a>
     </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#paused">
+        Paused
+      </a>
+    </li>
   </ul>
 
   <section class="govuk-tabs__panel" id="warning-letter">
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">3</td>
-          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Jennifer G. Salazar
+            <br />
+            35 Berkeley Rd
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Suspended</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">1</td>
-          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Owen Walters
+            <br />
+            89 Marlborough Crescent
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">2</td>
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Lauren Murphy
+            <br />
+            76 Fore St
+          </td>
           <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Kyle Parkes
+            <br />
+            98 Brynglas Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
         </tr>
       </tbody>
     </table>
   </section>
 
   <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nosp-due">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Leon Foster
+            <br />
+            25 Huntly Street
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Elise Sanderson
+            <br />
+            32 Main St
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Charles Fox
+            <br />
+            67 Canterbury Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Demi Brookes
+            <br />
+            3 Scotswood Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="universal-credit">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            William Wilkins
+            <br />
+            42 Roker Terrace
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Suspended</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Owen Walters
+            <br />
+            89 Marlborough Crescent
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Lilly Rice
+            <br />
+            22 Guilry Street
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Finley King
+            <br />
+            33 Cunnery Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="upcoming-court">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Lauren Nixon
+            <br />
+            38 Wressle Road
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Suspended</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Elise Herbert
+            <br />
+            62 Kent Street
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Alfie Webster
+            <br />
+            67 Iffley Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Jacob Haynes
+            <br />
+            98 Southend Avenue
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="evictions">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Alisha Webb
+            <br />
+            6 Foregate Street
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Suspended</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Molly Brown
+            <br />
+            20 Osborne Road
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Joe Duffy
+            <br />
+            57 Dunmow Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Lucas Morris
+            <br />
+            49 Bishopgate Street
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="paused">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reference No.</th>
+          <th scope="col" class="govuk-table__header">Tenant</th>
+          <th scope="col" class="govuk-table__header">Balance</th>
+          <th scope="col" class="govuk-table__header">Last action</th>
+          <th scope="col" class="govuk-table__header">Agreement</th>
+          <th scope="col" class="govuk-table__header">Pause</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Nicholas Richardsn
+            <br />
+            14 Maidstone Road
+          </td>
+          <td class="govuk-table__cell">14.44</td>
+          <td class="govuk-table__cell">
+            04 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Suspended</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Morgan Gibbons
+            <br />
+            30 Pendwyalit Road
+          </td>
+          <td class="govuk-table__cell">30.20</td>
+          <td class="govuk-table__cell">
+            03 Jul
+            <br />
+            Letter 1
+          </td>
+          <td class="govuk-table__cell">Breached</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Alex Rowe
+            <br />
+            29 Ilchester Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">None</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0800800/01</td>
+          <td class="govuk-table__cell">
+            Isabel Myers
+            <br />
+            96 Haslemere Road
+          </td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">
+            None
+          </td>
+          <td class="govuk-table__cell">Live</td>
+          <td class="govuk-table__cell">
+            <input type="checkbox" checked="true">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </div>
 
