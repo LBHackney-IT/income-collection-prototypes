@@ -61,14 +61,26 @@
 </header>
 {% endblock %}
 
-{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: "This is a prototype of a new service. Some parts may not work yet."
+  }) }}
+  {% block pageNavigation %}
+  {% endblock %}
+{% endblock %}
 
-{% block footer %}{% endblock %}
-
-{% block bodyEnd %}
+{% block bodyStart %}
   {% block scripts %}
     {% include "includes/scripts.html" %}
     {% block pageScripts %}{% endblock %}
   {% endblock %}
   <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
 {% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% block footer %}{% endblock %}
+

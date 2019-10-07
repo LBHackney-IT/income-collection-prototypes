@@ -72,3 +72,14 @@ body {
     text-align: right;
   }
 }
+
+.govuk-phase-banner  {
+  &__content {
+    &__tag {
+      background-color: $hackney-green;
+    }
+    &__wrapper  {
+      padding-bottom: 20px;
+    }
+  }
+}
