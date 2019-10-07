@@ -1,0 +1,96 @@
+main {
+  background-color: $white;
+  padding: 1.5em 0;
+
+  .phase-banner  {
+    @include phase-banner();
+
+    .phase-tag {
+      background: $hackney-green
+    }
+  }
+
+  .phase-banner__wrapper  {
+    padding-bottom: 20px;
+  }
+
+  #main-content {
+    @extend %site-width-container;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  h1 {
+    @include heading-48;
+
+    color: $hackney-green;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+
+  h2 {
+    @include heading-27;
+
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+
+  ul, ol, .panel, .notice {
+    margin: $gutter 0;
+  }
+
+  iframe {
+    padding-bottom: 2em;
+  }
+
+  object, embed {
+    height: 315px;
+    max-width: 95%;
+    width: 560px;
+  }
+
+  abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+
+  .button {
+    @include button($hackney-green);
+
+    &--right {
+      float: right;
+    }
+  }
+
+  .box-highlight {
+    margin: 1em 0;
+    padding: 2em 1em;
+    color: $white;
+    background-color: $hackney-green;
+    text-align: center;
+  }
+
+  .link-back {
+    margin-top: 0;
+    margin-bottom: $gutter;
+  }
+
+  .no-padding {
+    padding: 0px;
+  }
+}

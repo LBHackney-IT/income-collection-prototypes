@@ -38,36 +38,32 @@
 {% endblock %}
 
 {% block header %}
-  {% include "includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
+<header class="header">
+  <div class="wrapper">
+    <div class="grid-row" style="padding: 0;">
+      <div class="column-one-half">
+        <a href="/" class="header__logo"></a>
+        <div class="header__title">
+          <span class="font-medium">Income Collection</span>
+        </div>
+      </div>
+        <div class="column-one-quarter">
+            <a class="button--dark-grey button--right" target="_blank" href="/search"><i class="fa fa-search"></i> Search</a>
+        </div>
+        <div class="column-one-quarter">
+          <div class="header__user">
+              test
+              <a href="/logout">Sign out</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</header>
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
-{% if useAutoStoreData %}
-  {% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
-        ]
-      }
-    }) }}
-  {% endblock %}
-{% endif %}
+{% block footer %}{% endblock %}
 
 {% block bodyEnd %}
   {% block scripts %}

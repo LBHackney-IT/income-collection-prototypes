@@ -1,0 +1,18 @@
+
+.form-search {
+  //margin: 20px;
+
+  &__group {
+    margin-top: 8px;
+  }
+
+  &__label {
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &__input {
+    width: 80%
+  }
+}

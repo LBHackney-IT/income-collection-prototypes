@@ -1,0 +1,12 @@
+.positive, .error {
+  color: $negative-red;
+}
+
+.negative {
+  color: $positive-green;
+}
+
+.fake {
+  color: $hackney-grey;
+  cursor: not-allowed;
+}

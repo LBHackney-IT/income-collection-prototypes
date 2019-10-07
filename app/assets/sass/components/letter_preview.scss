@@ -1,0 +1,78 @@
+.letter_preview {
+  border: 2px solid $hackney-green;
+  padding: 20px;
+  max-height: 50vh;
+  overflow: scroll;
+
+  .right{
+    float: right;
+    text-align: right;
+  }
+
+  .top_space {
+    height: 69.12pt;
+  }
+
+  .hackney-logo {
+    margin-top: 25.92pt;
+  }
+
+  .lessee_address {
+    margin-top: 0;
+    margin-bottom: 112.32pt;
+    margin-left: 27.648pt;
+  }
+
+  p {
+    display: block;
+    margin-block-start: 14.4pt;
+    margin-block-end: 14.4pt;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+
+  .green_box {
+    padding: 8.64pt 8.64pt 0 8.64pt;
+    border: 2pt #589d8b solid;
+    text-align: center;
+    background-color: #ddefea;
+  }
+
+  h2 {
+    margin-block-end: 0px;
+    margin-block-start: 37.44pt;
+  }
+
+  td, th {
+    border: 1px solid black;
+    width: 250px;
+    padding: 10px;
+  }
+}
+
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.donut {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #00634a;
+  border-radius: 50%;
+  width: 16vh;
+  height: 16vh;
+  animation: donut-spin 1.2s linear infinite;
+  margin: 42vh auto;
+}
+.loader {
+  background: #00634a54;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 1000vh;
+  display: none;
+}
