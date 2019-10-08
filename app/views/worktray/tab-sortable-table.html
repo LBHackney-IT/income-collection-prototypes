@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Your Worktray</h2>
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#immediate-actions">
+        Immediate Actions
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#upcoming-court-dates">
+        Upcoming Court Dates
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#upcoming-evictions">
+        Upcoming Evictions
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#paused-cases">
+        Paused Cases
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#patch-list">
+        Patch List
+      </a>
+    </li>
+  </ul>
+
+  {% set showNextAction = true %}
+
+  <section class="govuk-tabs__panel" id="immediate-actions">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% set startCase = 0 %}
+        {% set endCase = 10 %}
+        {% include 'worktray/partials/table_sort.html' %}
+      </div>
+    </div>
+  </section>
+
+  {% set showNextAction = false %}
+
+  <section class="govuk-tabs__panel" id="upcoming-court-dates">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% set startCase = 11 %}
+        {% set endCase = 13 %}
+        {% include 'worktray/partials/table_sort.html' %}
+      </div>
+    </div>
+  </section>
+
+  <section class="govuk-tabs__panel" id="upcoming-evictions">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% set startCase = 14 %}
+        {% set endCase = 15 %}
+        {% include 'worktray/partials/table_sort.html' %}
+      </div>
+    </div>
+  </section>
+
+  <section class="govuk-tabs__panel" id="paused-cases">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% set startCase = 16 %}
+        {% set endCase = 20 %}
+        {% set paused = true %}
+        {% include 'worktray/partials/table_sort.html' %}
+      </div>
+    </div>
+  </section>
+
+  {% set showNextAction = true %}
+
+  <section class="govuk-tabs__panel" id="patch-list">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% set paused = false %}
+        {% set startCase = 21 %}
+        {% set endCase = 31 %}
+        {% include 'worktray/partials/table_sort.html' %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

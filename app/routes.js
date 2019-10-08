@@ -16,4 +16,9 @@ router.get('/worktray/tab-with-groups', function(req, res) {
   res.render('worktray/tab-with-groups', { cases: cases.records })
 })
 
+router.get('/worktray/tab-sortable-table', function(req, res) {
+  res.render('worktray/tab-sortable-table', { cases: cases.records })
+})
+
+
 module.exports = router
