@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Your Worktray</h2>
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#immediate-actions">
+        Immediate Actions
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#upcoming-actions">
+        Upcoming Actions
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#automated-actions">
+        Automated Actions
+      </a>
+    </li>
+  </ul>
+
+  <section class="govuk-tabs__panel" id="immediate-actions">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Send a warning letter</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            116
+          </strong>
+        </div>
+
+        {% set startCase = 0 %}
+        {% set endCase = 10 %}
+        {% include 'worktray/partials/table_with_select_boxes.html' %}
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Send a NOSP</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            4
+          </strong>
+        </div>
+
+        {% set startCase = 11 %}
+        {% set endCase = 15 %}
+        {% include 'worktray/partials/table_with_select_boxes.html' %}
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Apply for universal credit direct payments</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            4
+          </strong>
+        </div>
+
+        {% set startCase = 16 %}
+        {% set endCase = 20 %}
+        {% include 'worktray/partials/table_with_select_boxes.html' %}
+      </div>
+    </div>
+  </section>
+
+
+  <section class="govuk-tabs__panel" id="upcoming-actions">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Upcoming court actions</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            2
+          </strong>
+        </div>
+
+        {% set startCase = 22 %}
+        {% set endCase = 24 %}
+        {% include 'worktray/partials/table.html' %}
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Upcoming evictions</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            1
+          </strong>
+        </div>
+
+        {% set startCase = 24 %}
+        {% set endCase = 25 %}
+        {% include 'worktray/partials/table.html' %}
+      </div>
+    </div>
+  </section>
+
+
+  <section class="govuk-tabs__panel" id="automated-actions">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h3 class='govuk-heading-m'>SMS</h3>
+
+        <div class="govuk-body">
+          This feature is not yet developed.
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h3 class='govuk-heading-m'>Letter 1</h3>
+
+        <div class="govuk-body">
+          This feature is not yet developed.
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h3 class='govuk-heading-m'>Letter 2</h3>
+
+        <div class="govuk-body">
+          This feature is not yet developed.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

@@ -7,4 +7,18 @@ router.get('/case-details', function(req, res) {
   res.render('case-details/index', cases.first())
 })
 
+router.get('/case-details/:id', function(req, res) {
+  const caseObject = cases.find(req.params.id)
+  res.render('case-details/index', caseObject)
+})
+
+router.get('/worktray/tab-with-groups', function(req, res) {
+  res.render('worktray/tab-with-groups', { cases: cases.records })
+})
+
+router.get('/worktray/tab-sortable-table', function(req, res) {
+  res.render('worktray/tab-sortable-table', { cases: cases.records })
+})
+
+
 module.exports = router

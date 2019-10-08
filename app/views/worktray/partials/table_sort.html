@@ -1,0 +1,98 @@
+<table class="govuk-table sortable-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header no-sort ">
+        <input type="checkbox" class="select-all-box">
+      </th>
+      <th scope="col" class="govuk-table__header no-sort">Reference No.</th>
+      <th scope="col" class="govuk-table__header no-sort">Tenant</th>
+      <th scope="col" class="govuk-table__header">Balance</th>
+      <th scope="col" class="govuk-table__header no-sort">Agreement</th>
+      <th scope="col" class="govuk-table__header no-sort">Last action</th>
+      {% if showNextAction %}
+        <th scope="col" class="govuk-table__header">Next Recommended Action</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for i in range(startCase, endCase) -%}
+      {% set case = cases[i] %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <input type="checkbox" class="select-box">
+        </td>
+        <td class="govuk-table__cell">
+          <a href="/case-details/{{ case.ref | urlencode }}" class="govuk-body govuk-link">
+            {{ case.ref }}
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          {{ case.name }}
+          <br>
+          {{ case.address }}
+        </td>
+        <td class="govuk-table__cell">{{ case.accontBalance }}</td>
+        <td class="govuk-table__cell">{{ case.agreement }}</td>
+        <td class="govuk-table__cell">
+          {{ case.lastAction | striptags(true) | escape | nl2br }}
+        </td>
+        {% if showNextAction %}
+          <td class="govuk-table__cell">{{ case.nextAction }}</td>
+        {% endif %}
+      </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+
+<div class="button-wrapper">
+  <button class="govuk-button send-button" data-module="govuk-button" disabled>
+    Perform Action
+  </button>
+
+  {% if (endCase - startCase) > 9 %}
+  <ul class="pagination" style="display: inline-block; float: right; margin-top: 15px;">
+     <li style="display: inline-block;" class="page-item"><a class="page-link" href="#">Previous</a></li>
+     <li style="display: inline-block;" class="page-item">1</li>
+     <li style="display: inline-block;" class="page-item"><a class="page-link" href="#">2</a></li>
+     <li style="display: inline-block;" class="page-item"><a class="page-link" href="#">3</a></li>
+     <li style="display: inline-block;" class="page-item"><a class="page-link" href="#">Next</a></li>
+   </ul>
+  {% endif %}
+</div>
+
+<hr>
+
+<script>
+  jQuery(document).ready(function() {
+    Array.from(document.getElementsByClassName('sortable-table')).forEach((element) => {
+      new Tablesort(element);
+    })
+
+    const setButton = function(table) {
+      if (table.find('.select-box:checked').length > 0) {
+        table.siblings('.button-wrapper').find('button').removeAttr('disabled')
+      } else {
+        table.siblings('.button-wrapper').find('button').attr('disabled', 'disabled')
+      }
+    }
+
+    jQuery('.select-all-box').on('change', function() {
+      const table = jQuery(this).parents('table')
+
+      table.find('tbody input.select-box').prop('checked', jQuery(this).prop('checked'))
+
+      setButton(table)
+    })
+
+    jQuery('.select-box').on('change', function() {
+      const table = jQuery(this).parents('table')
+      const selectAllBox = table.find('thead input.select-all-box')
+
+      if (selectAllBox.prop('checked') && jQuery(this).prop('checked') === false) {
+        selectAllBox.prop('indeterminate', true)
+      }
+
+      setButton(table)
+    })
+  })
+</script>

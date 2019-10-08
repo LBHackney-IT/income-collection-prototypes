@@ -1,0 +1,35 @@
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Reference No.</th>
+      <th scope="col" class="govuk-table__header">Tenant</th>
+      <th scope="col" class="govuk-table__header">Balance</th>
+      <th scope="col" class="govuk-table__header">Last action</th>
+      <th scope="col" class="govuk-table__header">Agreement</th>
+      <th scope="col" class="govuk-table__header">Paused</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for i in range(startCase, endCase) -%}
+      {% set case = cases[i] %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <a href="/case-details/{{ case.ref | urlencode }}" class="govuk-body govuk-link">
+            {{ case.ref }}
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          {{ case.name }}
+          <br>
+          {{ case.address }}
+        </td>
+        <td class="govuk-table__cell">{{ case.accontBalance }}</td>
+        <td class="govuk-table__cell">
+          {{ case.lastAction | striptags(true) | escape | nl2br }}
+        </td>
+        <td class="govuk-table__cell">{{ case.agreement }}</td>
+        <td class="govuk-table__cell">{{ case.paused }}</td>
+      </tr>
+    {%- endfor %}
+  </tbody>
+</table>
