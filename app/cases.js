@@ -38,7 +38,7 @@ class Cases {
     }
 
     return {
-      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      name: `${faker.name.prefix()} ${faker.name.firstName()} ${faker.name.lastName()}`,
       ref: `${faker.finance.account(6)}/${faker.finance.account(2)}`,
       startDate: startDate,
       formattedStartDate: moment(startDate).format('MMM Do, YYYY'),
@@ -50,7 +50,10 @@ class Cases {
       lastAction: lastActionString,
       agreement: agreement,
       paused: this.paused[Math.floor(Math.random() * this.paused.length)],
-      nextAction: nextAction
+      nextAction: nextAction,
+      universalCredit: ['Yes', 'No'][faker.random.number({ min: 0, max: 1 })],
+      propertyType: ['House', 'Falt'][faker.random.number({ min: 0, max: 1 })],
+      bedrooms: faker.random.number({ min: 0, max: 6 })
     }
   }
 

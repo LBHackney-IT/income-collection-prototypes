@@ -13,7 +13,19 @@
 
   {% include "case-details/partials/tenancy_info.html" %}
 
-  {% include "case-details/partials/amount_and_property_info.html" %}
+  <div class="grid-row">
+    <div class="column-one-third">
+      {% include "case-details/partials/property_details.html" %}
+    </div>
+    <div class="column-two-thirds">
+      {% include "case-details/partials/personal_details.html" %}
+    </div>
+  </div>
+
+  <div class="grid-row">
+    {% include "case-details/partials/amount.html" %}
+
+  </div>
 
   <h2>Balance over time</h2>
   <div class="grid-row">
