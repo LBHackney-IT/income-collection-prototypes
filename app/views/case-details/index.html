@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="content" role="main">
+  <div class="grid-row">
+    <div class="column-full">
+      <a class="link--back" href="javascript:history.back()"
+        >Return back to your worktray</a
+      >
+    </div>
+  </div>
+
+  {% include "case-details/partials/tenancy_info.html" %}
+
+  {% include "case-details/partials/amount_and_property_info.html" %}
+
+  <h2>Balance over time</h2>
+  <div class="grid-row">
+    <div class="column-full">
+      <details class="govuk-details" data-module="govuk-details">
+        <summary
+          style="color:#1d70b8; cursor:pointer"
+          class="govuk-details__summary"
+        >
+          <span class="govuk-details__summary-text"><u>Graph</u></span>
+        </summary>
+        <canvas
+          id="balance_chart"
+          style="display: block; height: 300px; width: 960px;"
+          height="50"
+          width="1920"
+          class="chartjs-render-monitor"
+        ></canvas>
+      </details>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <h2>Arrears Agreements</h2>
+
+      There have been no arrears agreements made.
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <h2 class="pull-left">Payment history &amp; Action diary</h2>
+      <a class="button pull-right" href="/nyi">Add an action</a>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full column-align-right">
+      <a class="link--forward" href="/nyi">View the full payment history</a>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full column-align-right">
+      <a class="link--forward" href="/nyi"
+        >View the full arrears action diary</a
+      >
+    </div>
+  </div>
+</div>
+
+{% endblock %}
