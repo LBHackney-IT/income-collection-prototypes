@@ -19,6 +19,18 @@ class Cases {
     const agreement = this.agreements[Math.floor(Math.random() * this.agreements.length)]
     const lastAction = this.lastActions[Math.floor(Math.random() * this.lastActions.length)]
     const lastActionDate = faker.date.recent(365) // 365 Days
+
+    const currentActionIndex = this.lastActions.indexOf(lastAction)
+    let nextAction;
+    if (currentActionIndex === 3) {
+      nextAction = 'SMS'
+    } else if (currentActionIndex === 2) {
+      nextAction = 'NOSP'
+    } else {
+      nextAction = this.lastActions[currentActionIndex + 1]
+    }
+
+
     let lastActionString = lastAction;
 
     if (lastAction !== 'None') {
@@ -37,7 +49,8 @@ class Cases {
       address: faker.address.streetAddress(),
       lastAction: lastActionString,
       agreement: agreement,
-      paused: this.paused[Math.floor(Math.random() * this.paused.length)]
+      paused: this.paused[Math.floor(Math.random() * this.paused.length)],
+      nextAction: nextAction
     }
   }
 
