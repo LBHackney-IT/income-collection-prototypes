@@ -1,16 +1,25 @@
 <table class="govuk-table sortable-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header no-sort ">
+      <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>
         <input type="checkbox" class="select-all-box">
       </th>
-      <th scope="col" class="govuk-table__header no-sort">Reference No.</th>
-      <th scope="col" class="govuk-table__header no-sort">Tenant</th>
+      <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>Reference No.</th>
+      <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>Tenant</th>
       <th scope="col" class="govuk-table__header">Balance</th>
-      <th scope="col" class="govuk-table__header no-sort">Agreement</th>
-      <th scope="col" class="govuk-table__header no-sort">Last action</th>
+      <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>Agreement</th>
+      <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>Last action</th>
       {% if showNextAction %}
-        <th scope="col" class="govuk-table__header" data-sort-default>Next Recommended Action</th>
+        <th scope="col" class="govuk-table__header no-sort" data-sort-method='none'>
+          Filter Next Recommended Action
+          <br>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="Show All" selected>Show All</option>
+            <option value="NOSP">Send a NOSP</option>
+            <option value="Letter">Send Warning Letter</option>
+            <option value="Apply">Apply for Universal Credit</option>
+          </select>
+        </th>
       {% endif %}
     </tr>
   </thead>
@@ -37,7 +46,13 @@
           {{ case.lastAction | striptags(true) | escape | nl2br }}
         </td>
         {% if showNextAction %}
-          <td class="govuk-table__cell">{{ case.nextAction }}</td>
+          <td class="govuk-table__cell nra">
+            {% if case.nextAction == 'SMS' %}
+              Apply for UC
+            {% else %}
+              {{ case.nextAction }}
+            {% endif %}
+          </td>
         {% endif %}
       </tr>
     {%- endfor %}
@@ -93,6 +108,16 @@
       }
 
       setButton(table)
+    })
+
+    jQuery('.govuk-select').on('change', function() {
+      const value = jQuery(this).val()
+
+      jQuery(this).parents('table').find('tr').removeClass('hidden')
+
+      if (value !== 'Show All') {
+        jQuery(this).parents('table').find('.nra:not(:contains("' + value + '"))').parents('tr').addClass('hidden')
+      }
     })
   })
 </script>
