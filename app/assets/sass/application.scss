@@ -43,6 +43,7 @@ th[role=columnheader]:not(.no-sort):after {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+  transform: scale(2)
 }
 
 th[aria-sort=ascending]:not(.no-sort):after {
@@ -52,7 +53,7 @@ th[aria-sort=ascending]:not(.no-sort):after {
 
 th[aria-sort]:not(.no-sort):after {
 	visibility: visible;
-	opacity: 0.4;
+	opacity: 1;
 }
 
 th[role=columnheader]:not(.no-sort):hover:after {
