@@ -14,7 +14,7 @@ router.get('/case-details/split-view', function(req, res) {
 
 router.get('/case-details/:id', function(req, res) {
   const caseObject = cases.find(req.params.id)
-  res.render('case-details/index', caseObject)
+  res.render('case-details/split-view', caseObject)
 })
 
 router.get('/worktray/tab-with-groups', function(req, res) {
