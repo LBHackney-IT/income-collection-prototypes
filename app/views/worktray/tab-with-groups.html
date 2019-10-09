@@ -30,21 +30,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         <div>
-          <h3 class='govuk-heading-m pull-left'>Send a warning letter</h3>
-          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
-            116
-          </strong>
-        </div>
-
-        {% set startCase = 0 %}
-        {% set endCase = 10 %}
-        {% include 'worktray/partials/table_with_select_boxes.html' %}
-      </div>
-    </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div>
           <h3 class='govuk-heading-m pull-left'>Send a NOSP</h3>
           <strong class="govuk-tag pull-left" style="margin-left: 15px;">
             4
@@ -53,6 +38,21 @@
 
         {% set startCase = 11 %}
         {% set endCase = 15 %}
+        {% include 'worktray/partials/table_with_select_boxes.html' %}
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h3 class='govuk-heading-m pull-left'>Send a warning letter</h3>
+          <strong class="govuk-tag pull-left" style="margin-left: 15px;">
+            116
+          </strong>
+        </div>
+
+        {% set startCase = 0 %}
+        {% set endCase = 10 %}
         {% include 'worktray/partials/table_with_select_boxes.html' %}
       </div>
     </div>
