@@ -11,6 +11,9 @@ router.get('/case-details/split-view', function(req, res) {
   res.render('case-details/split-view', cases.first())
 })
 
+router.get('/case-details/timeline', function (req, res) {
+  res.render('case-details/timeline', cases.first())
+})
 
 router.get('/case-details/:id', function(req, res) {
   const caseObject = cases.find(req.params.id)
