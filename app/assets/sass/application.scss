@@ -62,6 +62,6 @@ th[role=columnheader]:not(.no-sort):hover:after {
 }
 
 .hidden {
-  display: none;
-  visibility: hidden;
+  display: none !important;
+  visibility: hidden !important;
 }

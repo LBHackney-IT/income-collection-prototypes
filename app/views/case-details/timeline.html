@@ -1,0 +1,704 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="content" role="main">
+    <div class="grid-row">
+        <div class="column-full">
+            <a class="link--back" href="javascript:history.back()"
+            >Return back to your worktray</a
+            >
+        </div>
+    </div>
+
+    {% include "case-details/partials/tenancy_info.html" %}
+
+    <div class="grid-row">
+        <div class="column-one-third">
+            {% include "case-details/partials/property_details.html" %}
+        </div>
+        <div class="column-two-thirds">
+            {% include "case-details/partials/personal_details.html" %}
+        </div>
+    </div>
+
+    <div class="grid-row">
+        {% include "case-details/partials/amount.html" %}
+
+    </div>
+
+    <h2>Balance over time</h2>
+    <div class="grid-row">
+        <div class="column-full">
+            <details class="govuk-details" data-module="govuk-details">
+                <summary
+                        style="color:#1d70b8; cursor:pointer"
+                        class="govuk-details__summary"
+                >
+                    <span class="govuk-details__summary-text"><u>Graph</u></span>
+                </summary>
+                <canvas
+                        id="balance_chart"
+                        style="display: block; height: 300px; width: 960px;"
+                        height="50"
+                        width="1920"
+                        class="chartjs-render-monitor"
+                ></canvas>
+            </details>
+        </div>
+    </div>
+
+    <div class="grid-row">
+        <div class="column-full">
+            <h2>Arrears Agreements</h2>
+
+            There have been no arrears agreements made.
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div class="govuk-form-group">
+                    <label class="form-label" for="period">Period</label>
+                    <select class="govuk-select" id="sort" name="sort">
+                        <option value="all" selected>All</option>
+                        <option value="1w">This week</option>
+                        <option value="2m">Two months</option>
+                        <option value="3m">Three months</option>
+                        <option value="12m">12 months</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+              <div class="govuk-form-group">
+                  <label class="form-label" for="action_type">Action Type</label>
+                  <select class="govuk-select" id="action_type" name="action_type">
+                      <option value="all" selected>All</option>
+                      <option value="comms">Communications</option>
+                      <option value="court">Court history</option>
+                      <option value="agreements">Agreements</option>
+                  </select>
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 0; text-align: center;">
+                <button class="govuk-button timeline__show-all-button" data-module="govuk-button">
+                    Show All
+                </button>
+                <button class="govuk-button timeline__show-actions-button" data-module="govuk-button">
+                    All Actions
+                </button>
+                <button class="govuk-button timeline__show-transactions-button" data-module="govuk-button">
+                    All Transactions
+                </button>
+              </div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="timeline">
+        <tbody class="govuk-table timeline__week" data-time-1 data-time-2 data-time-3 data-time-12>
+            <tr class="govuk-table__row" >
+                <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+                    Week 21
+                </th>
+                <td class="govuk-table__cell">
+                    <details class="govuk-details timeline__actions-button">
+                        <summary class="govuk-details__summary">
+                         <span class="govuk-details__summary-text">
+                            1 Actions
+                        </span>
+                        </summary>
+                    </details>
+                </td>
+                <td class="govuk-table__cell">
+                    <details class="govuk-details timeline__transactions-button">
+                        <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            2 Transactions
+                        </span>
+                        </summary>
+                    </details>
+                </td>
+                <td class="govuk-table__cell numeric negative">£0.00</td>
+                <td class="govuk-table__cell numeric positive">£110.00</td>
+                <td class="govuk-table__cell numeric">£110.00</td>
+            </tr>
+            <tr class="timeline__action">
+                <td style="text-align: right">3 Jun 2019</td>
+                <td style="text-align: right">09:32</td>
+                <td>
+                    Court Date
+                </td>
+                <td>
+                    <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Show comment</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            There is an upcomming court date of 01/11/2019
+                        </div>
+                    </details>
+                </td>
+                <td><span class="govuk-tag" style="float: right">Action</span> </td>
+                <td class="govuk-table__cell numeric negative"></td>
+                <td class="govuk-table__cell numeric positive"></td>
+                <td class="govuk-table__cell numeric">£110.00</td>
+            </tr>
+                <tr class="timeline__transaction">
+                <td style="text-align: right">1 Jun 2019</td>
+                <td style="text-align: right">13:59</td>
+                <td colspan="3">
+                    Service charges
+                    <span class="govuk-tag" style="float: right;">Transaction</span>
+                </td>
+                <td class="numeric negative">£0.00</td>
+                <td class="numeric positive">£10.00</td>
+                <td class="numeric">£110.00</td>
+            </tr>
+            <tr class="timeline__transaction">
+              <td style="text-align: right">1 Jun 2019</td>
+              <td style="text-align: right">13:59</td>
+              <td colspan="3">
+                  Basic Rent
+                  <span class="govuk-tag" style="float: right;">Transaction</span>
+              </td>
+              <td class="numeric negative">£0.00</td>
+              <td class="numeric positive">£100.00</td>
+              <td class="numeric">£100.00</td>
+          </tr>
+        </tbody>
+
+        <tbody class="govuk-table timeline__week" data-time-2 data-time-3 data-time-12>
+            <tr class="govuk-table__row" >
+                <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+                    Week 20
+                </th>
+                <td class="govuk-table__cell">
+                    <details class="govuk-details timeline__actions-button">
+                        <summary class="govuk-details__summary">
+                             <span class="govuk-details__summary-text">
+                                2 Actions
+                            </span>
+                        </summary>
+                    </details>
+                </td>
+                <td class="govuk-table__cell">
+                    <details class="govuk-details timeline__transactions-button">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                1 Transactions
+                            </span>
+                        </summary>
+                    </details>
+                </td>
+                <td class="govuk-table__cell numeric negative">£0.00</td>
+                <td class="govuk-table__cell numeric positive">£10.00</td>
+                <td class="govuk-table__cell numeric">£80.00</td>
+</tr>
+            <tr class="timeline__action">
+                <td style="text-align: right">3 Jun 2019</td>
+                <td style="text-align: right">09:32</td>
+                <td>
+                    Unsuccessful visit
+                </td>
+                <td>
+                    <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Show comment</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                        </div>
+                    </details>
+                </td>
+                <td><span class="govuk-tag" style="float: right">Action</span> </td>
+                <td class="govuk-table__cell numeric negative"></td>
+                <td class="govuk-table__cell numeric positive"></td>
+                <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+            <tr class="timeline__action">
+                <td style="text-align: right">3 Jun 2019</td>
+                <td style="text-align: right">09:32</td>
+                <td>
+                    Unsuccessful visit
+                </td>
+                <td>
+                    <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Show comment</span>
+                        </summary>
+                        <div class="govuk-details__text" style="white-space: normal;">
+                            Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                        </div>
+                    </details>
+                </td>
+                <td><span class="govuk-tag" style="float: right">Action</span> </td>
+                <td class="govuk-table__cell numeric negative"></td>
+                <td class="govuk-table__cell numeric positive"></td>
+                <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+            <tr class="timeline__transaction">
+            <td style="text-align: right">1 Jun 2019</td>
+            <td style="text-align: right">13:59</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£10.00</td>
+            <td class="numeric">£80.00</td>
+</tr>
+        </tbody>
+
+
+        <tbody class="govuk-table timeline__week" data-time-2 data-time-3 data-time-12>
+        <tr class="govuk-table__row" >
+        <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+            Week 18
+        </th>
+        <td class="govuk-table__cell">
+            <details class="govuk-details timeline__actions-button">
+                <summary class="govuk-details__summary">
+                                 <span class="govuk-details__summary-text">
+                                    2 Actions
+                                </span>
+                </summary>
+            </details>
+        </td>
+        <td class="govuk-table__cell">
+            <details class="govuk-details timeline__transactions-button">
+                <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    1 Transactions
+                                </span>
+                </summary>
+            </details>
+        </td>
+        <td class="govuk-table__cell numeric negative">£0.00</td>
+        <td class="govuk-table__cell numeric positive">£10.00</td>
+        <td class="govuk-table__cell numeric">£80.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text" style="white-space: normal;">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__transaction">
+            <td style="text-align: right">1 Jun 2019</td>
+            <td style="text-align: right">13:59</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£10.00</td>
+            <td class="numeric">£80.00</td>
+</tr>
+        </tbody>
+
+        <tbody class="govuk-table timeline__week" data-time-3 data-time-12>
+        <tr class="govuk-table__row" >
+            <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+                Week 12
+            </th>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__actions-button">
+                    <summary class="govuk-details__summary">
+                             <span class="govuk-details__summary-text">
+                                2 Actions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__transactions-button">
+                    <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                1 Transactions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell numeric negative">£0.00</td>
+            <td class="govuk-table__cell numeric positive">£10.00</td>
+            <td class="govuk-table__cell numeric">£80.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text" style="white-space: normal;">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__transaction">
+            <td style="text-align: right">1 Jun 2019</td>
+            <td style="text-align: right">13:59</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£10.00</td>
+            <td class="numeric">£80.00</td>
+</tr>
+        </tbody>
+
+        <tbody class="govuk-table timeline__week" data-time-12>
+        <tr class="govuk-table__row" >
+            <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+                Week 4
+            </th>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__actions-button">
+                    <summary class="govuk-details__summary">
+                             <span class="govuk-details__summary-text">
+                                2 Actions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__transactions-button">
+                    <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                1 Transactions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell numeric negative">£0.00</td>
+            <td class="govuk-table__cell numeric positive">£10.00</td>
+            <td class="govuk-table__cell numeric">£80.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">3 Jun 2019</td>
+            <td style="text-align: right">09:32</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text" style="white-space: normal;">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__transaction">
+            <td style="text-align: right">1 Jun 2019</td>
+            <td style="text-align: right">13:59</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£10.00</td>
+            <td class="numeric">£80.00</td>
+</tr>
+        </tbody>
+
+        <tbody class="govuk-table timeline__week">
+        <tr class="govuk-table__row" >
+            <th colspan="3" scope="col" class="govuk-table__header timeline__header">
+                Week 2
+            </th>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__actions-button">
+                    <summary class="govuk-details__summary">
+                             <span class="govuk-details__summary-text">
+                                3 Actions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell">
+                <details class="govuk-details timeline__transactions-button">
+                    <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                2 Transactions
+                            </span>
+                    </summary>
+                </details>
+            </td>
+            <td class="govuk-table__cell numeric negative">£0.00</td>
+            <td class="govuk-table__cell numeric positive">£10.00</td>
+            <td class="govuk-table__cell numeric">£80.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">21 Jan 2019</td>
+            <td style="text-align: right">11:40</td>
+            <td>
+                Visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Visited tnt on the 21st Jan. Tnt is elderly and ill. She said she has been receiving treatment which is why is she has not been able to go out to make rent payment. She however agree to clear the arrears later this week. GERDA 9618
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">19 Jan 2019</td>
+            <td style="text-align: right">09:05</td>
+            <td>
+                Comms
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Chased for update - Emailed EO
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+</tr>
+        <tr class="timeline__transaction">
+            <td style="text-align: right">14 Jan 2019</td>
+            <td style="text-align: right">11:35</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£20.00</td>
+            <td class="numeric negative">£90.00</td>
+        </tr>
+        <tr class="timeline__transaction">
+            <td style="text-align: right">12 Jan 2019</td>
+            <td style="text-align: right">13:59</td>
+            <td colspan="3">
+                Service charges
+                <span class="govuk-tag" style="float: right;">Transaction</span>
+            </td>
+            <td class="numeric negative">£0.00</td>
+            <td class="numeric positive">£10.00</td>
+            <td class="numeric">£80.00</td>
+        </tr>
+        <tr class="timeline__action">
+            <td style="text-align: right">12 Jan 2019</td>
+            <td style="text-align: right">11:24</td>
+            <td>
+                Unsuccessful visit
+            </td>
+            <td>
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Show comment</span>
+                    </summary>
+                    <div class="govuk-details__text" style="white-space: normal;">
+                        Visited property during Blitz Aug 2016 (10.08.2016) knocked to speak to Brian who is wanting to succeed tenancy after death of tnt - A man answered the door and when asking to speak to Brian the man said that he went out - Asked the man to get Brian to contact NHO to discuss succession and left calling card with NHO contact details
+                    </div>
+                </details>
+            </td>
+            <td><span class="govuk-tag" style="float: right">Action</span> </td>
+            <td class="govuk-table__cell numeric negative"></td>
+            <td class="govuk-table__cell numeric positive"></td>
+            <td class="govuk-table__cell numeric">£0.00</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+    $('.timeline__actions-button').click(function () {
+      $(this).parents('tbody').find('.timeline__action').toggle()
+    })
+    $('.timeline__transactions-button').click(function () {
+      $(this).parents('tbody').find('.timeline__transaction').toggle()
+    })
+
+    $('.timeline__show-all-button').click(function () {
+      $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
+      $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
+    })
+
+    $('.timeline__show-actions-button').click(() => {
+      $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
+    })
+    $('.timeline__show-transactions-button').click(() => {
+      $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
+    })
+
+    $('#action_type').on('change', function() {
+      $('.timeline__action').removeClass('hidden')
+      $('.timeline__action:not(.show-time)').removeClass('show-type')
+
+      switch ($(this).val()) {
+        case 'comms':  {
+          $('.timeline__action:contains("Arrears mail")').addClass('show-type')
+          $('.timeline__action:contains("Visit")').addClass('show-type')
+          $('.timeline__action:contains("visit")').addClass('show-type')
+          $('.timeline__action:contains("Alternative Letter")').addClass('show-type')
+          $('.timeline__action:contains("telephone")').addClass('show-type')
+
+          $('.timeline__action:not(.show-type)').addClass('hidden')
+
+          break;
+        }
+        case 'court': {
+          $('.timeline__action:contains("court")').addClass('show-type')
+          $('.timeline__action:not(:contains("court"))').addClass('hidden')
+
+          break;
+        }
+        case 'agreements': {
+          $('.timeline__action:contains("agreement")').addClass('show-type')
+          $('.timeline__action:not(:contains("agreement"))').addClass('hidden')
+
+          break;
+        }
+      }
+    })
+
+    $('#sort').on('change', function() {
+        $('.timeline__week:not(.show-type)').removeClass('hidden')
+        $('.timeline__week.show-time').removeClass('show-time')
+
+      switch ($(this).val()) {
+        case '1w':  {
+          $('.timeline__week:not([data-time-1])').addClass('hidden')
+          $('.timeline__week[data-time-1]').addClass('show-time')
+
+          break;
+        }
+        case '2m': {
+          $('.timeline__week:not([data-time-2])').addClass('hidden')
+          $('.timeline__week[data-time-2]').addClass('show-time')
+
+          break;
+        }
+        case '3m': {
+          $('.timeline__week:not([data-time-3])').addClass('hidden')
+          $('.timeline__week[data-time-3]').addClass('show-time')
+
+          break;
+        }
+        case '12m': {
+          $('.timeline__week:not([data-time-12])').addClass('hidden')
+          $('.timeline__week[data-time-12]').addClass('show-time')
+
+          break;
+        }
+      }
+    })
+  })
+</script>
+
+{% endblock %}
