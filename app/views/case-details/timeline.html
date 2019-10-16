@@ -62,46 +62,57 @@
       </div>
     </div>
 
-    <table>
-        <tr>
-            <td>
-                <div class="govuk-form-group">
-                    <label class="form-label" for="period">Period</label>
-                    <select class="govuk-select" id="sort" name="sort">
-                        <option value="all" selected>All</option>
-                        <option value="1w">This week</option>
-                        <option value="2m">Two months</option>
-                        <option value="3m">Three months</option>
-                        <option value="12m">12 months</option>
-                    </select>
-                </div>
-            </td>
-            <td>
-              <div class="govuk-form-group">
-                  <label class="form-label" for="action_type">Action Type</label>
-                  <select class="govuk-select" id="action_type" name="action_type">
-                      <option value="all" selected>All</option>
-                      <option value="comms">Communications</option>
-                      <option value="court">Court history</option>
-                      <option value="agreements">Agreements</option>
-                  </select>
-              </div>
-            </td>
-            <td colspan="2">
-              <div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 0; text-align: center;">
-                <button class="govuk-button timeline__show-all-button" data-module="govuk-button">
-                    Show All
-                </button>
-                <button class="govuk-button timeline__show-actions-button" data-module="govuk-button">
-                    All Actions
-                </button>
-                <button class="govuk-button timeline__show-transactions-button" data-module="govuk-button">
-                    All Transactions
-                </button>
-              </div>
-            </td>
-        </tr>
-    </table>
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="govuk-form-group">
+          <fieldset class="inline">
+            <div class="multiple-choice">
+              <label class="form-label" for="period">Period</label>
+              <select class="govuk-select" id="sort" name="sort">
+                  <option value="all" selected>All</option>
+                  <option value="1w">This week</option>
+                  <option value="2m">Two months</option>
+                  <option value="3m">Three months</option>
+                  <option value="12m">12 months</option>
+              </select>
+            </div>
+            <div class="multiple-choice">
+              <label class="form-label" for="action_type">Action Type</label>
+              <select class="govuk-select" id="action_type" name="action_type">
+                  <option value="all" selected>All</option>
+                  <option value="comms">Communications</option>
+                  <option value="court">Court history</option>
+                  <option value="agreements">Agreements</option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="govuk-form-group">
+          <fieldset class="inline">
+            <div class="multiple-choice">
+              <input id="radio-inline-0" type="radio" name="radio-inline-group" value="hide-all" checked>
+              <label for="radio-inline-0">Hide All</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-1" type="radio" name="radio-inline-group" value="show-all">
+              <label for="radio-inline-1">Show All</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="radio-inline-group" value="show-actions">
+              <label for="radio-inline-2">All Actions</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-3" type="radio" name="radio-inline-group" value="show-transactions">
+              <label for="radio-inline-3">All Transactions</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
 
     <table class="timeline">
       <thead>
@@ -626,16 +637,33 @@
       $(this).parents('tbody').find('.timeline__transaction').toggle()
     })
 
-    $('.timeline__show-all-button').click(function () {
-      $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
-      $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
-    })
+    $('[name=radio-inline-group]').on('change', function() {
+      switch ($(this).val()) {
+        case 'hide-all': {
+          $('.timeline__actions-button[open] span').click()
+          $('.timeline__transactions-button[open] span').click()
 
-    $('.timeline__show-actions-button').click(() => {
-      $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
-    })
-    $('.timeline__show-transactions-button').click(() => {
-      $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
+          break;
+        }
+        case 'show-all': {
+          $('.timeline__actions-button:not([open]) span').click()
+          $('.timeline__transactions-button:not([open]) span').click()
+
+          break;
+        }
+        case 'show-actions': {
+          $('.timeline__actions-button:not([open]) span').click()
+          $('.timeline__transactions-button[open] span').click()
+
+          break;
+        }
+        case 'show-transactions': {
+          $('.timeline__actions-button[open] span').click()
+          $('.timeline__transactions-button:not([open]) span').click()
+
+          break;
+        }
+      }
     })
 
     $('#action_type').on('change', function() {
