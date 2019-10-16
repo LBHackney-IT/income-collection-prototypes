@@ -73,12 +73,13 @@ body {
   }
 }
 
-.govuk-phase-banner  {
+.govuk-phase-banner {
   &__content {
     &__tag {
       background-color: $hackney-green;
     }
-    &__wrapper  {
+
+    &__wrapper {
       padding-bottom: 20px;
     }
   }
@@ -86,4 +87,23 @@ body {
 
 .transactions-table__expand-link {
   font-size: 19px;
+}
+
+.timeline {
+  white-space: nowrap;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__action, &__transaction {
+    display: none;
+  }
+
+  &__actions-button,
+  &__transactions-button,
+  &__show-actions-button,
+  &__show-transactions-button {
+    margin: 0;
+  }
 }
