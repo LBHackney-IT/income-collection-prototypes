@@ -92,12 +92,27 @@ body {
 .timeline {
   //white-space: nowrap;
 
+  .comment {
+    width: 340px;
+  }
+
   &__header {
     text-align: center;
+    width: 200px;
   }
 
   &__action, &__transaction {
     display: none;
+  }
+
+  th,
+  td,
+  .govuk-details, {
+    font-size: 16px;
+  }
+
+  .govuk-tag {
+    font-size: 14px;
   }
 
   &__week > .govuk-table__row {
