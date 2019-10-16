@@ -58,6 +58,7 @@
         <tr>
             <td>
                 <div class="govuk-form-group">
+                    <label class="form-label" for="period">Period</label>
                     <select class="govuk-select" id="sort" name="sort">
                         <option value="all" selected>All</option>
                         <option value="1w">This week</option>
@@ -68,14 +69,29 @@
                 </div>
             </td>
             <td>
+              <div class="govuk-form-group">
+                  <label class="form-label" for="action_type">Action Type</label>
+                  <select class="govuk-select" id="action_type" name="action_type">
+                      <option value="all" selected>All</option>
+                      <option value="comms">Communications</option>
+                      <option value="court">Court history</option>
+                      <option value="agreements">Agreements</option>
+                  </select>
+              </div>
+            </td>
+            <td>
+              <div class="govuk-form-group">
                 <button class="govuk-button timeline__show-actions-button" data-module="govuk-button">
                     All Actions
                 </button>
+              </div>
             </td>
             <td>
+              <div class="govuk-form-group">
                 <button class="govuk-button timeline__show-transactions-button" data-module="govuk-button">
                     All Transactions
                 </button>
+              </div>
             </td>
         </tr>
     </table>
@@ -158,6 +174,35 @@
     })
     $('.timeline__show-transactions-button').click(() => {
       $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
+    })
+
+    $('#action_type').on('change', function() {
+      $('.timeline__action').removeClass('hidden')
+      $('.timeline__action').removeClass('show')
+
+      switch ($(this).val()) {
+
+        case 'comms':  {
+          $('.timeline__action:contains("Arrears mail")').addClass('show')
+          $('.timeline__action:contains("Visit")').addClass('show')
+          $('.timeline__action:contains("Alternative Letter")').addClass('show')
+          $('.timeline__action:contains("telephone")').addClass('show')
+
+          $('.timeline__action:not(.show)').addClass('hidden')
+
+          break;
+        }
+        case 'court': {
+          $('.timeline__action:not(:contains("court"))').addClass('hidden')
+
+          break;
+        }
+        case 'agreements': {
+          $('.timeline__action:not(:contains("agreement"))').addClass('hidden')
+
+          break;
+        }
+      }
     })
 
   })
