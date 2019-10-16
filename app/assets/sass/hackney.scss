@@ -100,6 +100,13 @@ body {
     display: none;
   }
 
+  &__week > .govuk-table__row {
+    th,
+    td {
+      background-color: #f8f8f8;
+    }
+  }
+
   &__actions-button,
   &__transactions-button,
   &__show-actions-button,

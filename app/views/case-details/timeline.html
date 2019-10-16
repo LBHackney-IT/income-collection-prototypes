@@ -79,15 +79,14 @@
                   </select>
               </div>
             </td>
-            <td>
-              <div class="govuk-form-group">
+            <td colspan="2">
+              <div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 0; text-align: center;">
+                <button class="govuk-button timeline__show-all-button" data-module="govuk-button">
+                    Show All
+                </button>
                 <button class="govuk-button timeline__show-actions-button" data-module="govuk-button">
                     All Actions
                 </button>
-              </div>
-            </td>
-            <td>
-              <div class="govuk-form-group">
                 <button class="govuk-button timeline__show-transactions-button" data-module="govuk-button">
                     All Transactions
                 </button>
@@ -594,12 +593,19 @@
 
 <script>
   $(document).ready(function () {
+
     $('.timeline__actions-button').click(function () {
       $(this).parents('tbody').find('.timeline__action').toggle()
     })
     $('.timeline__transactions-button').click(function () {
       $(this).parents('tbody').find('.timeline__transaction').toggle()
     })
+
+    $('.timeline__show-all-button').click(function () {
+      $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
+      $(document).find('.timeline__transactions-button').find('.govuk-details__summary-text').click()
+    })
+
     $('.timeline__show-actions-button').click(() => {
       $(document).find('.timeline__actions-button').find('.govuk-details__summary-text').click()
     })
