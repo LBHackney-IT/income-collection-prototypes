@@ -98,7 +98,7 @@
 
     <table class="timeline">
         <tbody class="govuk-table">
-        <tr class="govuk-table__row">
+        <tr class="govuk-table__row timeline__week" data-time-1 data-time-2 data-time-3 data-time-12>
             <th colspan="2" scope="col" class="govuk-table__header timeline__header">
                 Week 21
             </th>
@@ -178,26 +178,27 @@
 
     $('#action_type').on('change', function() {
       $('.timeline__action').removeClass('hidden')
-      $('.timeline__action').removeClass('show')
+      $('.timeline__action:not(.show-time)').removeClass('show-type')
 
       switch ($(this).val()) {
-
         case 'comms':  {
-          $('.timeline__action:contains("Arrears mail")').addClass('show')
-          $('.timeline__action:contains("Visit")').addClass('show')
-          $('.timeline__action:contains("Alternative Letter")').addClass('show')
-          $('.timeline__action:contains("telephone")').addClass('show')
+          $('.timeline__action:contains("Arrears mail")').addClass('show-type')
+          $('.timeline__action:contains("Visit")').addClass('show-type')
+          $('.timeline__action:contains("Alternative Letter")').addClass('show-type')
+          $('.timeline__action:contains("telephone")').addClass('show-type')
 
-          $('.timeline__action:not(.show)').addClass('hidden')
+          $('.timeline__action:not(.show-type)').addClass('hidden')
 
           break;
         }
         case 'court': {
+          $('.timeline__action:contains("court")').addClass('show-type')
           $('.timeline__action:not(:contains("court"))').addClass('hidden')
 
           break;
         }
         case 'agreements': {
+          $('.timeline__action:contains("agreement")').addClass('show-type')
           $('.timeline__action:not(:contains("agreement"))').addClass('hidden')
 
           break;
@@ -205,6 +206,37 @@
       }
     })
 
+    $('#sort').on('change', function() {
+        $('.timeline__week:not(.show-type)').removeClass('hidden')
+        $('.timeline__week.show-time').removeClass('show-time')
+
+      switch ($(this).val()) {
+        case '1w':  {
+          $('.timeline__week:not([data-time-1])').addClass('hidden')
+          $('.timeline__week[data-time-1]').addClass('show-time')
+
+          break;
+        }
+        case '2m': {
+          $('.timeline__week:not([data-time-2])').addClass('hidden')
+          $('.timeline__week[data-time-2]').addClass('show-time')
+
+          break;
+        }
+        case '3m': {
+          $('.timeline__week:not([data-time-3])').addClass('hidden')
+          $('.timeline__week[data-time-3]').addClass('show-time')
+
+          break;
+        }
+        case '12m': {
+          $('.timeline__week:not([data-time-12])').addClass('hidden')
+          $('.timeline__week[data-time-12]').addClass('show-time')
+
+          break;
+        }
+      }
+    })
   })
 </script>
 
